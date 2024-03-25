@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: my-component
+spec :
+  type: service
+  lifecycle: experimental
+annotations:
+  backstage.io/kuberbetes-namespace: A
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: my-component
+spec :
+  type: service
+  lifecycle: experimental
+  consumersApi : my-api
+annotations:
+  backstage.io/kuberbetes-namespace: B
