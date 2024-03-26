@@ -1,21 +1,37 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: my-component
+  name: knative-component
+  annotations:
+     backstage.io/kuberbetes-namespace: B
 spec :
   type: service
+  owner : knative-team
   lifecycle: experimental
-annotations:
-  backstage.io/kuberbetes-namespace: A
+  consumesApis : consumesApi
 
 ---
+
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: API
 metadata:
-  name: my-component
+  name: knative-Api
+  owner : knative
+  annotations:
+     backstage.io/kuberbetes-namespace: A
 spec :
-  type: service
+  type: openapi
   lifecycle: experimental
-  consumersApi : my-api
-annotations:
-  backstage.io/kuberbetes-namespace: B
+  definition : | 
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: knative API
+    servers:
+      - url: http://artist.spotify.net/v1
+    paths:
+      /artists:
+        get:
+          summary: List all artists
+    ...
+    
