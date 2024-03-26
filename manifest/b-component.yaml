@@ -2,6 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: artist-web
+  annotations:
+     backstage.io/kuberbetes-namespace: B
   description: The place to be, for great artists
 spec:
   type: website
