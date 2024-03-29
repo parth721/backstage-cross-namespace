@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: component2
+  annotations:
+     backstage.io/kuberbetes-namespace: C
+spec :
+  type: service
+  owner : knative-team
+  lifecycle: experimental
+  consumesApis : consumesApi
+  
