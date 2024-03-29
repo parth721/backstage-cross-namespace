@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: musician-web
+  annotations:
+     backstage.io/kuberbetes-namespace: C
+  description: The place to be, for great musician
+spec:
+  type: website
+  lifecycle: production
+  owner: musician-relations-team
+  system: musician-engagement-portal
+  dependsOn:
+    - resource:default/artists-db
+  consumesApis:
+    - artist-api  
